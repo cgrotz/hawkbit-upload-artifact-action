@@ -7,7 +7,7 @@ inputs:
   hawkbit-host-url: 
     description: 'Base URL of the Hawkbit instance to use'
     required: true
-    default: 'api.eu1.bosch-iot-hawkbit.com'
+    default: 'https://api.eu1.bosch-iot-rollouts.com'
   hawkbit-tenant: 
     description: 'Tenant of the Hawkbit Instance'
     required: true

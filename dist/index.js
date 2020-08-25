@@ -8796,7 +8796,7 @@ function uploadArtifact(softwareModuleId, filePath, fileName) {
         const hawkbitHostUrl = core.getInput('hawkbit-host-url');
         //const workFileName = fileName ? fileName: filePath.substring(filePath.lastIndexOf('/') + 1)
         const workFileName = filePath.substring(filePath.lastIndexOf('/') + 1);
-        const url = `https://${hawkbitHostUrl}/rest/v1/softwaremodules/${softwareModuleId}/artifacts`;
+        const url = `${hawkbitHostUrl}/rest/v1/softwaremodules/${softwareModuleId}/artifacts`;
         core.info(`${fileName}`);
         core.info(url);
         const form = new form_data_1.default();
