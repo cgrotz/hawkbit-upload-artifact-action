@@ -1,0 +1,68 @@
+name: 'Eclipse Hawkbit Action'
+description: 'Upload binaries to Hawkbit, create distribution sets and assign them to target filters'
+inputs:
+  file-path: 
+    description: 'Path to the file that should be uploaded'
+    required: true
+  hawkbit-host-url: 
+    description: 'Base URL of the Hawkbit instance to use'
+    required: true
+    default: 'api.eu1.bosch-iot-hawkbit.com'
+  hawkbit-tenant: 
+    description: 'Tenant of the Hawkbit Instance'
+    required: true
+  hawkbit-username: 
+    description: 'Username of the Hawkbit Instance'
+    required: true
+  hawkbit-password: 
+    description: 'Password of the Hawkbit Instance'
+    required: true
+  software-module-id:
+    description: 'ID of the software module to use in Hawkbit'
+    required: false
+  software-module-type:
+    description: 'If a distribution set should be created, please provide the type of the distribution set'
+    required: false
+  software-module-name:
+    description: 'If a software module should be created, please provide the name of the distribution set'
+    required: false
+  software-module-version:
+    description: 'If a software module should be created, please provide the version of the distribution set'
+    required: false
+  distribution-set-id:
+    description: 'If you want to assign the software module to a distribution set you can set this input variable'
+    required: false
+  distribution-set-type:
+    description: 'If a distribution set should be created, please provide the type of the distribution set'
+    required: false
+  distribution-set-name:
+    description: 'If a distribution set should be created, please provide the name of the distribution set'
+    required: false
+  distribution-set-version:
+    description: 'If a distribution set should be created, please provide the version of the distribution set'
+    required: false
+  create-distribution-set:
+    description: 'Create a distribution set, with the software module attached. You will also need to provide the name, type and version of the distribution set.'
+    required: false
+    default: 'false'
+  assign-to-target-filter:
+    description: 'Assign the distribution set to a target filter.'
+    required: false
+    default: 'false'
+  target-filter-id:
+    description: 'ID of the target filter the distribution set should be assigned to'
+    required: false
+  target-filter-type:
+    description: 'Type of the assignment froced, soft, ...'
+    required: false
+  target-filter-weight:
+    description: 'Weight of the target filter assignment e.g. 200'
+    required: false
+
+    
+outputs:
+  software-module-id: # id of output
+    description: 'ID of the new software module created in Hawkbit'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
